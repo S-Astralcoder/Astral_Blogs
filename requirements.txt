@@ -4,4 +4,5 @@ Flask-CKEditor==1.0.0
 Flask-SQLAlchemy==3.1.1
 Flask-WTF==1.2.2
 gunicorn==23.0.0
+psycopg2-binary==2.9.10
 WTForms==3.2.1
