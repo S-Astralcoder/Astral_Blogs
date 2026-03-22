@@ -1,0 +1,42 @@
+.container {
+    padding-top: 100px;
+    text-align: center;
+}
+
+.container h1 {
+    font-size: 100px;
+    color: #f7f1f7;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+}
+
+.container .join-in button {
+    display: inline-block;
+    width: 250px;
+    aspect-ratio: 1/0.2;
+    font-size: 150%;
+    margin: 20px;
+    color: #f7f1f7;
+    background: linear-gradient(135deg, #5b3b56, #7a566e);
+    border: 1px solid #caa9bc;
+    border-radius: 8px;
+    box-shadow: 0 10px 24px rgba(26, 12, 24, 0.28);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.container .join-in button:hover {
+    background: linear-gradient(135deg, #6a4674, #8b6483);
+    box-shadow: 0 14px 28px rgba(26, 12, 24, 0.36);
+    transform: translateY(-2px);
+}
+
+.container .join-in button:active {
+    transform: translateY(0);
+}
+
+@media screen and (max-width:900px) {
+    .container .join-in {
+        display: grid;
+        grid-template-rows: auto auto;
+    }
+}

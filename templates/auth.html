@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block page_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth_style.css') }}">
+{% endblock %}
+{% block body %}
+    <section class="auth-shell">
+        <div class="auth-card">
+            <p class="auth-kicker">AstralBlogs</p>
+            <h1>{{ auth_title }}</h1>
+            <p class="auth-subtitle">{{ auth_subtitle }}</p>
+
+            <form class="auth-form">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com">
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+
+                {% if submit_label == "Register" %}
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password">
+                {% endif %}
+
+                <button type="submit">{{ submit_label }}</button>
+            </form>
+
+            <p class="auth-switch">
+                {{ switch_text }}
+                <a href="{{ switch_href }}">{{ switch_label }}</a>
+            </p>
+        </div>
+    </section>
+{% endblock %}

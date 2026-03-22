@@ -1,4 +1,14 @@
 {% extends "base.html" %}
-
-{% block body %}
+{% block page_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home_body_style.css') }}">
 {% endblock %}
+{% block body %}
+    <div class="container">
+        <h1><span style="font-family: 'Rye', serif;">Astral</span>Blogs</h1>
+        <div class="join-in">
+            <a href="{{ url_for('register') }}" class="reg"><button>Register</button></a>
+            <a href="{{ url_for('login') }}" class="sign"><button>Sign In</button></a>
+        </div>
+    </div>
+{% endblock %}
+

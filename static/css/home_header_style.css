@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    color: #f4ecf4;
+    background-color: #2e1d2c;
+    font-family: Georgia, serif;
+}
+
+.head-bar {
+    color: white;
+    text-align: center;
+    background-image: url("../images/dark_flower_bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10px;
+}
+
+.head-nav {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.head-nav > a {
+    font-size: 1.4rem;
+    letter-spacing: 0.04em;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.checkbox {
+    display: none;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 18px;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    padding-right: 0;
+}
+
+.menu a {
+    display: inline-block;
+    padding: 8px 0;
+    font-size: 1rem;
+    letter-spacing: 0.03em;
+}
+
+@media (max-width: 900px) {
+    .head-nav {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+        padding: 16px 24px;
+    }
+
+    .checkbox {
+        display: inline-block;
+        color: white;
+        cursor: pointer;
+        padding: 10px 14px;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        border-radius: 8px;
+        background-color: rgba(34, 20, 33, 0.55);
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        top: calc(100% - 4px);
+        right: 24px;
+        min-width: 180px;
+        margin: 0;
+        padding: 14px 18px;
+        background-color: rgba(34, 20, 33, 0.92);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 10px;
+        box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
+        text-align: left;
+    }
+
+    .menu li {
+        padding: 8px 0;
+    }
+
+    .menu-toggle:checked ~ .menu {
+        display: block;
+    }
+}
