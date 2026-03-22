@@ -9,16 +9,42 @@
             <h1>{{ auth_title }}</h1>
             <p class="auth-subtitle">{{ auth_subtitle }}</p>
 
-            <form class="auth-form">
+            <form class="auth-form" method="post" novalidate>
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="you@example.com">
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    inputmode="email"
+                    required
+                >
 
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password">
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    autocomplete="{% if submit_label == 'Register' %}new-password{% else %}current-password{% endif %}"
+                    minlength="8"
+                    maxlength="64"
+                    required
+                >
 
                 {% if submit_label == "Register" %}
                 <label for="confirm-password">Confirm Password</label>
-                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password">
+                <input
+                    type="password"
+                    id="confirm-password"
+                    name="confirm-password"
+                    placeholder="Confirm your password"
+                    autocomplete="new-password"
+                    minlength="8"
+                    maxlength="64"
+                    required
+                >
                 {% endif %}
 
                 <button type="submit">{{ submit_label }}</button>
@@ -30,4 +56,34 @@
             </p>
         </div>
     </section>
+    <script>
+        const authForm = document.querySelector(".auth-form");
+        const passwordField = document.querySelector("#password");
+        const confirmPasswordField = document.querySelector("#confirm-password");
+
+        if (authForm) {
+            authForm.addEventListener("submit", (event) => {
+                if (confirmPasswordField && passwordField.value !== confirmPasswordField.value) {
+                    confirmPasswordField.setCustomValidity("Passwords do not match.");
+                } else if (confirmPasswordField) {
+                    confirmPasswordField.setCustomValidity("");
+                }
+
+                if (!authForm.checkValidity()) {
+                    event.preventDefault();
+                    authForm.reportValidity();
+                }
+            });
+        }
+
+        if (confirmPasswordField) {
+            confirmPasswordField.addEventListener("input", () => {
+                if (passwordField.value === confirmPasswordField.value) {
+                    confirmPasswordField.setCustomValidity("");
+                } else {
+                    confirmPasswordField.setCustomValidity("Passwords do not match.");
+                }
+            });
+        }
+    </script>
 {% endblock %}

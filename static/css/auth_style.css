@@ -62,6 +62,14 @@
     box-shadow: 0 0 0 3px rgba(215, 177, 198, 0.16);
 }
 
+.auth-form input:invalid {
+    border-color: #d68da9;
+}
+
+.auth-form input:invalid:focus {
+    box-shadow: 0 0 0 3px rgba(214, 141, 169, 0.2);
+}
+
 .auth-form button {
     margin-top: 12px;
     padding: 14px 16px;
