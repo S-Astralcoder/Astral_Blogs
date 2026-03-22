@@ -29,7 +29,7 @@ class Base(DeclarativeBase):
 
 app = Flask(__name__, instance_relative_config=True)
 app.config["SECRET_KEY"] = os.environ.get("FLASK_KEY")
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URI")
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URI") or "postgresql://astralblogs_user:n3UqzPsr9z4moKLHruzKQOZYT4INsdOJ@dpg-d6vth6khg0os73a0jeo0-a/astralblogs"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 ADMIN_NAME = os.environ.get("ADMIN_NAME")
