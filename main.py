@@ -28,8 +28,8 @@ class Base(DeclarativeBase):
 
 
 app = Flask(__name__, instance_relative_config=True)
-app.config["SECRET_KEY"] = os.environ.get("FLASK_KEY", "dev-secret-key")
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URI", "sqlite:///blog.db")
+app.config["SECRET_KEY"] = os.environ.get("FLASK_KEY")
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URI")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 ADMIN_NAME = os.environ.get("ADMIN_NAME")
