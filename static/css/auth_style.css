@@ -31,6 +31,7 @@
     margin: 0 0 28px;
     color: #ead9e5;
     line-height: 1.6;
+    font-size: 1.1rem;
 }
 
 .auth-form {
@@ -40,12 +41,13 @@
 
 .auth-form label {
     color: #f8edf5;
-    font-size: 0.95rem;
+    font-size: 1rem;
 }
 
 .auth-form input {
     padding: 14px 16px;
     color: #fff5fc;
+    font-family: inherit;
     font-size: 1rem;
     background-color: rgba(32, 18, 30, 0.75);
     border: 1px solid rgba(231, 202, 219, 0.18);
@@ -74,6 +76,7 @@
     margin-top: 12px;
     padding: 14px 16px;
     color: #f7f1f7;
+    font-family: inherit;
     font-size: 1rem;
     background: linear-gradient(135deg, #5b3b56, #7a566e);
     border: 1px solid #caa9bc;
@@ -92,6 +95,7 @@
 .auth-switch {
     margin: 24px 0 0;
     color: #e2cfdb;
+    font-size: 1rem;
 }
 
 .auth-switch a {

@@ -1,21 +1,48 @@
 .container {
-    padding-top: 100px;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 96px 24px 48px;
     text-align: center;
 }
 
-.container h1 {
-    font-size: 100px;
+.hero-block h1 {
+    margin: 0;
+    font-size: clamp(4rem, 10vw, 7rem);
     color: #f7f1f7;
     text-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
 }
 
-.container .join-in button {
-    display: inline-block;
-    width: 250px;
-    aspect-ratio: 1/0.2;
-    font-size: 150%;
-    margin: 20px;
+.hero-copy {
+    max-width: 640px;
+    margin: 18px auto 0;
+    font-size: 1.45rem;
+    line-height: 1.5;
+    color: #ead9e5;
+}
+
+.join-in {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+}
+
+.join-in a,
+.button-link {
+    text-decoration: none;
+}
+
+.join-in button,
+.button-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    padding: 14px 22px;
     color: #f7f1f7;
+    font-family: inherit;
+    font-size: 1.15rem;
     background: linear-gradient(135deg, #5b3b56, #7a566e);
     border: 1px solid #caa9bc;
     border-radius: 8px;
@@ -24,19 +51,30 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
-.container .join-in button:hover {
+.join-in button:hover,
+.button-link:hover {
     background: linear-gradient(135deg, #6a4674, #8b6483);
     box-shadow: 0 14px 28px rgba(26, 12, 24, 0.36);
     transform: translateY(-2px);
 }
 
-.container .join-in button:active {
-    transform: translateY(0);
+.preview-shell {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 16px 24px 0;
 }
 
-@media screen and (max-width:900px) {
-    .container .join-in {
+@media (max-width: 900px) {
+    .container {
+        padding-top: 72px;
+    }
+
+    .hero-copy {
+        font-size: 1.2rem;
+    }
+
+    .join-in {
         display: grid;
-        grid-template-rows: auto auto;
+        gap: 14px;
     }
 }

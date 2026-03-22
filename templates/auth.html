@@ -10,6 +10,20 @@
             <p class="auth-subtitle">{{ auth_subtitle }}</p>
 
             <form class="auth-form" method="post" novalidate>
+                {% if submit_label == "Register" %}
+                <label for="name">Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Your display name"
+                    autocomplete="name"
+                    minlength="2"
+                    maxlength="120"
+                    required
+                >
+                {% endif %}
+
                 <label for="email">Email</label>
                 <input
                     type="email"

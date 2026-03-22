@@ -1,14 +1,42 @@
 {% extends "base.html" %}
 {% block page_css %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/home_body_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/blog_style.css') }}">
 {% endblock %}
 {% block body %}
-    <div class="container">
-        <h1><span style="font-family: 'Rye', serif;">Astral</span>Blogs</h1>
+    <section class="container hero-block">
+        <h1><span class="brand-mark">Astral</span>Blogs</h1>
+        <p class="hero-copy">A floral-toned space for thoughtful writing, personal stories, and cinematic long-form posts.</p>
         <div class="join-in">
-            <a href="{{ url_for('register') }}" class="reg"><button>Register</button></a>
-            <a href="{{ url_for('login') }}" class="sign"><button>Sign In</button></a>
+            <a href="{{ url_for('posts') }}" class="reg"><button>Explore Posts</button></a>
+            {% if current_user %}
+            <a href="{{ url_for('create_post') }}" class="sign"><button>Write a Post</button></a>
+            {% else %}
+            <a href="{{ url_for('register') }}" class="sign"><button>Create Account</button></a>
+            {% endif %}
         </div>
-    </div>
-{% endblock %}
+    </section>
 
+    <section class="preview-shell">
+        <div class="section-heading">
+            <p class="section-kicker">Recent Writing</p>
+            <h2>Latest from the AstralBlogs community</h2>
+        </div>
+        {% if latest_posts %}
+        <div class="post-grid">
+            {% for post in latest_posts %}
+            <article class="post-card">
+                <p class="post-meta">{{ post.author.name }} | {{ post.created_at.strftime("%B %d, %Y") }}</p>
+                <h3><a class="post-title-link" href="{{ url_for('show_post', post_id=post.id) }}">{{ post.title }}</a></h3>
+                <p class="post-subtitle">{{ post.subtitle }}</p>
+            </article>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <h3>No posts yet</h3>
+            <p>The first published story will appear here. Register and write the opening post.</p>
+        </div>
+        {% endif %}
+    </section>
+{% endblock %}

@@ -1,25 +1,38 @@
 body {
     margin: 0;
     color: #f4ecf4;
-    background-color: #2e1d2c;
-    font-family: Georgia, serif;
+    background:
+        radial-gradient(circle at top, rgba(120, 83, 116, 0.22), transparent 35%),
+        linear-gradient(180deg, #2f1d2d 0%, #22131f 100%);
+    font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+main {
+    padding-bottom: 72px;
+}
+
+.brand-mark {
+    font-family: "Rye", serif;
 }
 
 .head-bar {
     color: white;
-    text-align: center;
-    background-image: url("../images/dark_flower_bg.jpg");
+    background-image:
+        linear-gradient(rgba(24, 12, 22, 0.55), rgba(24, 12, 22, 0.55)),
+        url("../images/dark_flower_bg.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 10px;
 }
 
 .head-nav {
     display: grid;
     grid-template-columns: auto auto;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 22px 28px;
     position: relative;
 }
 
@@ -29,7 +42,7 @@ header nav a {
 }
 
 .head-nav > a {
-    font-size: 1.4rem;
+    font-size: 1.7rem;
     letter-spacing: 0.04em;
 }
 
@@ -43,28 +56,47 @@ header nav a {
 
 .menu {
     display: flex;
+    gap: 20px;
     list-style: none;
-    gap: 18px;
     padding: 0;
     margin: 0;
-}
-
-.menu li {
-    padding-right: 0;
 }
 
 .menu a {
     display: inline-block;
     padding: 8px 0;
-    font-size: 1rem;
+    font-size: 1.1rem;
     letter-spacing: 0.03em;
+}
+
+.flash-stack {
+    max-width: 1120px;
+    margin: 24px auto 0;
+    padding: 0 24px;
+}
+
+.flash {
+    margin-bottom: 12px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background-color: rgba(52, 30, 48, 0.88);
+    box-shadow: 0 10px 24px rgba(15, 7, 14, 0.18);
+}
+
+.flash-success {
+    border-color: rgba(188, 229, 200, 0.35);
+}
+
+.flash-warning,
+.flash-error {
+    border-color: rgba(235, 173, 186, 0.35);
 }
 
 @media (max-width: 900px) {
     .head-nav {
         grid-template-columns: auto auto;
-        justify-content: space-between;
-        padding: 16px 24px;
+        padding: 18px 20px;
     }
 
     .checkbox {
@@ -81,19 +113,19 @@ header nav a {
         display: none;
         position: absolute;
         top: calc(100% - 4px);
-        right: 24px;
+        right: 20px;
         min-width: 180px;
-        margin: 0;
         padding: 14px 18px;
-        background-color: rgba(34, 20, 33, 0.92);
+        background-color: rgba(34, 20, 33, 0.96);
         border: 1px solid rgba(255, 255, 255, 0.12);
         border-radius: 10px;
         box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
         text-align: left;
+        z-index: 10;
     }
 
     .menu li {
-        padding: 8px 0;
+        padding: 6px 0;
     }
 
     .menu-toggle:checked ~ .menu {

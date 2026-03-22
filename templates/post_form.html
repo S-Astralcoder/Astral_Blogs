@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block page_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/blog_style.css') }}">
+{% endblock %}
+{% block body %}
+    <section class="page-shell">
+        <div class="section-heading">
+            <p class="section-kicker">Write</p>
+            <h1>{% if form_mode == "edit" %}Edit Your Post{% else %}Publish a New Post{% endif %}</h1>
+            <p class="section-copy">
+                {% if form_mode == "edit" %}
+                Refine the post without losing the tone and pacing of the original.
+                {% else %}
+                Keep the same reflective tone as the site and share something worth reading.
+                {% endif %}
+            </p>
+        </div>
+
+        <form class="post-form" method="post">
+            {{ form.hidden_tag() }}
+
+            <label for="title">{{ form.title.label.text }}</label>
+            {{ form.title() }}
+
+            <label for="subtitle">{{ form.subtitle.label.text }}</label>
+            {{ form.subtitle() }}
+
+            <label for="content">{{ form.content.label.text }}</label>
+            {{ form.content() }}
+
+            {{ form.submit(value="Save Changes" if form_mode == "edit" else "Publish Post") }}
+        </form>
+    </section>
+    {{ ckeditor.load() }}
+    {{ ckeditor.config(name='content') }}
+{% endblock %}

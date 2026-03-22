@@ -9,7 +9,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Rye&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/home_header_style.css') }}">
     {% block page_css %}{% endblock %}
@@ -17,16 +17,33 @@
 <body>
     <header class="head-bar">
         <nav class="head-nav">
-            <a href="{{ url_for('home') }}"><span style="font-family: 'Rye', serif;">Astral</span>Blogs</a>
+            <a href="{{ url_for('home') }}"><span class="brand-mark">Astral</span>Blogs</a>
             <input type="checkbox" id="menu-box" class="menu-toggle">
             <label for="menu-box" class="checkbox">Menu</label>
             <ul class="menu">
                 <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('posts') }}">Posts</a></li>
+                {% if current_user %}
+                <li><a href="{{ url_for('create_post') }}">Write</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
                 <li><a href="{{ url_for('register') }}">Register</a></li>
                 <li><a href="{{ url_for('login') }}">Sign In</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <section class="flash-stack">
+            {% for category, message in messages %}
+            <div class="flash flash-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        </section>
+        {% endif %}
+    {% endwith %}
+
     <main>
         {% block body %}{% endblock %}
     </main>
